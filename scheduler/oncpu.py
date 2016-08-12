@@ -47,7 +47,7 @@ int trace_finish_task_switch(struct pt_regs *ctx, struct task_struct *prev) {
     last_time = last_time_on_cpu.lookup(&prev_pid);
     current_max_oncpu = max_oncpu.lookup(&prev_pid);
 
-    // update max offcpu time
+    // update max oncpu time
     if(last_time != NULL) {
         u64 delta_nanos = current_time - *last_time;
         if(current_max_oncpu == NULL) {
